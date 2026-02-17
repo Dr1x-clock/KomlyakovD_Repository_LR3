@@ -144,7 +144,32 @@ namespace KomlyakovD_LR3_project
 
         static void Zadanie4()
         {
-            Console.Clear();
+        Console.Clear();
+        Console.WriteLine("Задание 4: Определение суммы цифр введенного числа X");
+        
+        Console.Write("Введите натуральное число X: ");
+        int X;
+        while (!int.TryParse(Console.ReadLine(), out X) || X <= 0)
+        {
+            Console.Write("Ошибка! Введите корректное натуральное число (целое положительное): ");
+        }
+        
+        string xString = X.ToString();
+        int sum = 0;
+        
+        Console.Write($"Сумма цифр числа {X}: ");
+        for (int i = 0; i < xString.Length; i++)
+        {
+            int digit = int.Parse(xString[i].ToString());
+            sum += digit;
+            
+            Console.Write(digit);
+            if (i < xString.Length - 1) Console.Write(" + ");
+        }
+        Console.WriteLine($" = {sum}");
+        
+        Console.WriteLine("\nНажмите любую клавишу для возврата в меню...");
+        Console.ReadKey();
         }
     }
 }
