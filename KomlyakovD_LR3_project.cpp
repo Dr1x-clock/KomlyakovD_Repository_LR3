@@ -101,8 +101,45 @@ namespace KomlyakovD_LR3_project
 
         static void Zadanie3()
         {
-            Console.Clear();
-            
+        Console.Clear();
+        Console.WriteLine("Задание 3: Определение произведения первых N цифр натурального числа X");
+        
+        Console.Write("Введите натуральное число X: ");
+        int X;
+        while (!int.TryParse(Console.ReadLine(), out X) || X <= 0)
+        {
+            Console.Write("Ошибка! Введите корректное натуральное число (целое положительное): ");
+        }
+        
+        int numberOfDigits = X.ToString().Length;
+        Console.WriteLine($"Число X = {X} имеет {numberOfDigits} разрядов");
+        
+        Console.Write($"Введите количество первых цифр N (от 1 до {numberOfDigits}): ");
+        int N;
+        while (!int.TryParse(Console.ReadLine(), out N) || N < 1 || N > numberOfDigits)
+        {
+            Console.Write($"Ошибка! Введите корректное число от 1 до {numberOfDigits}: ");
+        }
+        
+        string xString = X.ToString();
+        long product = 1;
+        
+        for (int i = 0; i < N; i++)
+        {
+            int digit = int.Parse(xString[i].ToString());
+            product *= digit;
+        }
+        
+        Console.Write($"Первые {N} цифр числа {X}: ");
+        for (int i = 0; i < N; i++)
+        {
+            Console.Write(xString[i]);
+            if (i < N - 1) Console.Write(" * ");
+        }
+        Console.WriteLine($" = {product}");
+        
+        Console.WriteLine("\nНажмите любую клавишу для возврата в меню...");
+        Console.ReadKey();
         }
 
         static void Zadanie4()
