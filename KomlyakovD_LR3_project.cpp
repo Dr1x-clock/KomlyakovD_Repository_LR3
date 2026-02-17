@@ -72,9 +72,32 @@ namespace KomlyakovD_LR3_project
 
         static void Zadanie2()
         {
-            Console.Clear();
-            
+        Console.Clear();
+        Console.WriteLine("Задание 2: Введение цифры N (которая меньше числа разрядов числа X)");
+        
+        Console.Write("Введите натуральное число X: ");
+        int X;
+        while (!int.TryParse(Console.ReadLine(), out X) || X <= 0)
+        {
+            Console.Write("Ошибка! Введите корректное натуральное число (целое положительное): ");
         }
+        
+        int numberOfDigits = X.ToString().Length;
+        Console.WriteLine($"Число X = {X} имеет {numberOfDigits} разрядов");
+        
+        Console.Write($"Введите цифру N (меньше {numberOfDigits}): ");
+        int N;
+        while (!int.TryParse(Console.ReadLine(), out N) || N < 0 || N >= numberOfDigits)
+        {
+            Console.Write($"Ошибка! Введите корректное число от 0 до {numberOfDigits - 1}: ");
+        }
+        
+        Console.WriteLine($"\nВы ввели: X = {X}, N = {N}");
+        Console.WriteLine($"N меньше числа разрядов X: {N} < {numberOfDigits} - верно");
+        Console.WriteLine("\nНажмите любую клавишу для возврата в меню...");
+        Console.ReadKey();
+        }
+
 
         static void Zadanie3()
         {
