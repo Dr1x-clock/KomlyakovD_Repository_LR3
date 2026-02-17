@@ -54,8 +54,20 @@ namespace KomlyakovD_LR3_project
 
         static void Zadanie1()
         {
-            Console.Clear();
+        Console.Clear();
+        Console.WriteLine("Задание 1: Введение натурального числа X");
+        Console.Write("Введите натуральное число X: ");
         
+        int X;
+        // Проверка корректности ввода (натуральное число > 0)
+        while (!int.TryParse(Console.ReadLine(), out X) || X <= 0)
+        {
+            Console.Write("Ошибка! Введите корректное натуральное число (целое положительное!): ");
+        }
+        
+        Console.WriteLine($"\nВы ввели число: {X}");
+        Console.WriteLine("\nНажмите любую клавишу для возврата в меню.");
+        Console.ReadKey();
         }
 
         static void Zadanie2()
